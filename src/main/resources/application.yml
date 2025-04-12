@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: webflux-dev
+  r2dbc:
+    url: r2dbc:mysql://180.83.169.83:13306/webflux_db
+    username: kirssu
+    password: fbckdrlf
+
+  sql:
+    init:
+      mode: always
+
+logging:
+  level:
+    org.springframework.r2dbc: DEBUG
