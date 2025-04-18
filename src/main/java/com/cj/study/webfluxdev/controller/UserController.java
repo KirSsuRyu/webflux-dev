@@ -5,6 +5,7 @@ import com.cj.study.webfluxdev.model.User;
 import com.cj.study.webfluxdev.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -22,6 +23,11 @@ public class UserController {
         return service.getUser(id)
                 .map(ResponseEntity::ok)
                 .defaultIfEmpty(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/")
+    public Flux<User> getUsers() {
+        return service.getUsers();
     }
 
     @PostMapping
